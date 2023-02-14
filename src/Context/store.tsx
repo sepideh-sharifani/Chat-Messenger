@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import { ContextAction, ContextAppState } from "../Types/Context/Context.types";
 import ContactReducer from "./ContactReducer/Contact.reducer";
-import { MessegeReducer } from "./MessegesReducer/Messeges.reducer";
+import { MessegeReducer } from "./Messeges/Messeges.reducer";
 
 const initialState: ContextAppState = {
     //store shape
@@ -11,7 +11,8 @@ const initialState: ContextAppState = {
     },
     messeges: {
         MessegeList: [],
-        roomId: ""
+        roomId: "",
+        messegeDetail: []
     },
 }
 

@@ -13,7 +13,7 @@ interface MessengerLayoutProps extends React.PropsWithChildren { }
 
 export const MessengerLayout: React.FunctionComponent<MessengerLayoutProps> = (props) => {
     const { state: { messeges } } = useContext(AppContext)
-    const isAboveMediaQuery = useMediaQuery('(min-width:500px)')
+    const isAboveMediaQuery = useMediaQuery('(min-width:600px)')
     return (
         <div className="bg-white flex justify-center items-center m-auto rounded-xl h-[calc(100vh-105px)]">
             {isAboveMediaQuery ? (
@@ -43,14 +43,27 @@ export const MessengerLayout: React.FunctionComponent<MessengerLayoutProps> = (p
                 </>)
                 :
                 (<div className="flex flex-col w-full">
-                    <SideHeader />
-                    <div className="flex justify-center items-center">
-                        <SideDetail />
-                        <div className="flex flex-col w-full h-[calc(100vh-175px)] overflow-y-auto scrollbar-thin scrollbar-thumb-MainPurple-1">
-                            <SearchBar />
-                            <ChatList />
-                        </div>
-                    </div>
+                    {
+                        messeges.roomId ? (
+                            <div className="w-full">
+                                <ChatHeader />
+                                <ChatMainLayout />
+                            </div>
+                        ) : (
+                            <>
+                                <SideHeader />
+                                <div className="flex justify-center items-center">
+                                    <SideDetail />
+                                    <div className="flex flex-col w-full h-[calc(100vh-175px)] overflow-y-auto scrollbar-thin scrollbar-thumb-MainPurple-1">
+                                        <SearchBar />
+                                        <ChatList />
+                                    </div>
+
+                                </div>
+                            </>
+                        )
+                    }
+
                 </div>)
             }
         </div >

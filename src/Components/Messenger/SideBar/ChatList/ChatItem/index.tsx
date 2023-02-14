@@ -21,6 +21,7 @@ export const ChatItem: React.FunctionComponent<ChatItemProps> = ({
     const dispatch = useContext(AppContext).dispatch;
     const handleClickItem = (roomId: string) => {
         AXIOS.get(`${ApiRoutes.GetMesseges}${roomId}`).then((res) => {
+            console.log(res)
             if (res?.data?.length > 0) {
                 dispatch(
                     {
@@ -35,7 +36,7 @@ export const ChatItem: React.FunctionComponent<ChatItemProps> = ({
     }
 
     return (
-        <div className="flex items-center justify-center w-full p-1 mb-2 cursor-pointer ease-in duration-200 bg-MainGreen-2 hover:bg-MainPurple-3 rounded-2xl" onClick={() => handleClickItem(roomId)} >
+        <div className="flex items-center justify-center w-full p-1 mb-2 cursor-pointer ease-in duration-200 bg-MainGreen-2 hover:bg-MainPurple-3 rounded-md" onClick={() => handleClickItem(roomId)} >
             <img
                 className="rounded-full w-9 h-9 overflow-hidden"
                 src={image}

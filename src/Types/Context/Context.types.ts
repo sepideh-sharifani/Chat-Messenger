@@ -14,6 +14,7 @@ export enum ContactActionTypes {
 
 export type MessegeState = {
 	roomId: string;
+	messegeDetail: messegeDetailItem[];
 	MessegeList: MessegeItem[];
 };
 
@@ -23,8 +24,15 @@ export type MessegeItem = {
 	id: number;
 };
 
+export type messegeDetailItem = {
+	name: string;
+	image: string;
+	time: string;
+};
+
 export enum MessegeActionTypes {
 	Get_Current_Messeges = 'Get_Current_Messeges',
+	Exit_Room = 'Exit_Room',
 }
 
 export type ContextAppState = {
@@ -34,7 +42,7 @@ export type ContextAppState = {
 
 export type ContextAction<T, K> = {
 	type: T;
-	payload: K;
+	payload?: K;
 };
 
 export type ContactListState = {
