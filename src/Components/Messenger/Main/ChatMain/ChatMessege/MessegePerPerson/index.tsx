@@ -8,7 +8,7 @@ interface MessegePerPersonProps extends React.PropsWithChildren {
 
 const MessegePerPerson: React.FunctionComponent<MessegePerPersonProps> = ({ types = "sender" }) => {
     const { state: { messeges } } = useContext(AppContext);
-    console.log(messeges.MessegeList)
+    console.log(messeges)
     switch (types) {
         case ("sender"):
             return (
